@@ -23,15 +23,7 @@ const { ListNode } = require('../extensions/list-node.js');
  * }
  */
 
-class LinkedList {
-
-}
-
 function removeKFromList(l, k) {
-  let list = new LinkedList()
-  list.add(l)
-  list.remove(k)
-  return list
   // remove line with error and write your code here
 }
 
@@ -48,7 +40,7 @@ function convertArrayToList(arr) {
 }
 
 const initial = convertArrayToList([1, 2, 3, 3, 4, 5]);
-console.log(removeKFromList(initial, 3))
+removeKFromList(initial, 3)
 module.exports = {
   removeKFromList
 };
