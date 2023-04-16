@@ -24,23 +24,22 @@ const { ListNode } = require('../extensions/list-node.js');
  */
 
 function removeKFromList(l, k) {
-  // remove line with error and write your code here
-}
 
-function convertArrayToList(arr) {
-  return arr.reverse().reduce((acc, cur) => {
-    if (acc) {
-      const node = new ListNode(cur);
-      node.next = acc;
-      return node;
+  let previous = null;
+  let current = l;
+  
+  while (current !== null) {
+    if (current.value === k) {
+      if (previous === null) {
+        l = current.next;
+      } else {
+        previous.next = current.next;
+      }
+    } else {
+      previous = current;
     }
-
-    return new ListNode(cur);
-  }, null);
+    current = current.next;
+  }
+  
+  return l;
 }
-
-const initial = convertArrayToList([1, 2, 3, 3, 4, 5]);
-removeKFromList(initial, 3)
-module.exports = {
-  removeKFromList
-};
